@@ -7,7 +7,6 @@ services:
     tty: true
     volumes:
       - ./src:/app
+      - /app/node_modules
     ports:
       - "3000:3000"
-    # If you want to run `yarn dev` at docker compose startup
-    # command: sh -c "yarn dev"
