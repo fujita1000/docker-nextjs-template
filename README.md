@@ -1,62 +1,38 @@
-# Docker-Next.js
+Next.jsをdocker環境で起動するときのテンプ。
+開発に合わせて、好みで改造する。
 
-## Introduction
-This project is a template for Next.js development environment using TypeScript built with Docker Compose.
+## git cloneしてローカルに保存
 
-You can generate a new repository with the same directory structure and files as [mizu0715/docker-next.js](https://github.com/mizu0715/docker-next.js).
- 
-- [Docker Compose](https://docs.docker.com/get-started/08_using_compose/)
-- [Next.js](https://nextjs.org/)
+## git remote -vでpush先確認
 
-## Dependencies
-```json
-  "dependencies": {
-    "@types/node": "18.11.9",
-    "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.9",
-    "eslint": "8.28.0",
-    "eslint-config-next": "13.0.4",
-    "next": "13.0.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "4.9.3"
-  }
-```
-## Usage
-### Create a new repository
-- Click [[Use this template]](https://github.com/mizu0715/docker-next.js/generate)
+## git remote set-url origin [url] でpush先変更
 
-The new repository will start with the same files and folders as this repository.
+## git remote -v で確認
 
-### Git clone
-```bash
-git clone https://github.com/[your repository]
-```
+# プロジェクトディレクトリ内にあるファイルやディレクトリを全てコミット 
+$ git add .
+$ git commit -m "Initial Commit"
 
-### Docker Setup
-```bash
-docker-compose up -d
-```
+# 先ほど作成したGitHubリポジトリのURLをコピー&ペーストして、リモートブランチとして設定
+git remote add origin https://github.com/your-name/project-name.git
 
-### Next.js Setup
-```bash
-docker-compose exec app yarn
-
-# or
-
-docker-compose exec app bash
-yarn
-```
+# ローカルのファイルをアップロード
+git push -u origin main
 
 
-### Start Next.js in development mode
-```bash
-docker-compose exec app yarn dev
+## Docker起動
+docker-compose up --build
 
-# or
+or 
 
-docker-compose exec app bash
-yarn dev
-```
+docker-compose up
 
-http://localhost:3000/
+## Dockerでyarn起動
+$ docker-compose exec app yarn
+
+## Dockerでyarn dev起動
+$ docker-compose exec app yarn dev
+
+これはDocker環境でnext.jsアプリを作成するひな型です。
+
+環境に応じて色々カスタマイズしてください。
